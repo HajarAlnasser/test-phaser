@@ -100,10 +100,18 @@ this.rexUI.add.slider({
 
     }
 
+<<<<<<< HEAD
 
     update(){
 
       plotSine(this.number, window.innerWidth,this.graph,);
+=======
+
+    update(){
+
+      plotSine(this.number, window.innerWidth,this.graph);
+
+>>>>>>> 03273c2d02fc1752d6ae7f1b9a52c8d0ac1164d6
       //this.graph.clear();
       this.number=this.number+0.1;
       this.timer = this.time.delayedCall(100, this.startD, [], this);
