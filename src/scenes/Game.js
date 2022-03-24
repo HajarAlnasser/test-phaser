@@ -1,63 +1,125 @@
   import Phaser from "phaser";
+  import { plotSine } from "./Potting_Wave";
+  import { clearDraw
+   } from "./Potting_Wave";
+
+   const COLOR_PRIMARY = 0x4e342e;
+const COLOR_LIGHT = 0x7b5e57;
+const COLOR_DARK = 0x260e04;
+// colors
   export default class Game extends Phaser.Scene{
 
-   
+    preload() {
+      this.load.scenePlugin({
+          key: 'rexuiplugin',
+          url: 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexuiplugin.min.js',
+          sceneKey: 'rexUI'
+      });
+  }
+
     init(){
-      this.number=1;
+      this.number = 1
       this.timer;
     }
 
     create() {
       this.graph = this.add.graphics();
-      this.graph.lineStyle(2,0x00ffff);
+      this.graph.lineStyle(1000,0x509555);
 
       //this.startD();
      // this.time.delayedCall(10000,this.clearDraw() ,null,this);
+
+// start sider
+var print0 = this.add.text(0, 0, '');
+
+this.rexUI.add.slider({
+    x: 200,
+    y: 200,
+    width: 200,
+    height: 20,
+    orientation: 'x',
+
+    track: this.rexUI.add.roundRectangle(0, 0, 0, 0, 6, COLOR_DARK),
+    thumb: this.rexUI.add.roundRectangle(0, 0, 0, 0, 10, COLOR_LIGHT),
+
+    valuechangeCallback: function (value) {
+        print0.text = value;
+    },
+    space: {
+        top: 4,
+        bottom: 4
+    },
+    input: 'drag', // 'drag'|'click'
+})
+    .layout();
+
+
+var print1 = this.add.text(400, 0, '');
+this.rexUI.add.slider({
+    x: 600,
+    y: 300,
+    width: 20,
+    height: 200,
+    orientation: 'y',
+
+    track: this.rexUI.add.roundRectangle(0, 0, 0, 0, 10, COLOR_DARK),
+    indicator: this.rexUI.add.roundRectangle(0, 0, 0, 0, 10, COLOR_PRIMARY),
+    thumb: this.rexUI.add.roundRectangle(0, 0, 0, 0, 10, COLOR_PRIMARY),
+
+    input: 'click', // 'drag'|'click'
+    valuechangeCallback: function (value) {
+        print1.text = value;
+    },
+
+})
+    .layout();
+
+
+var print2 = this.add.text(0, 400, '');
+this.rexUI.add.slider({
+    x: 200,
+    y: 500,
+    width: 300,
+    height: 30,
+    orientation: 'x',
+
+    track: this.rexUI.add.roundRectangle(0, 0, 0, 0, 10, COLOR_DARK),
+    indicator: this.rexUI.add.roundRectangle(0, 0, 0, 0, 10, COLOR_PRIMARY),
+    thumb: this.rexUI.add.roundRectangle(0, 0, 0, 0, 10, COLOR_PRIMARY),
+
+    input: 'click', // 'drag'|'click'
+    easeValue: { duration: 250 },
+
+    valuechangeCallback: function (value) {
+        print2.text = value;
+    },
+
+})
+    .layout();
+
+
     }
+
+
     update(){
 
-      this.plotSine(this.number);
+      plotSine(this.number, window.innerWidth,this.graph,);
       //this.graph.clear();
       this.number=this.number+0.1;
-      this.timer = this.time.delayedCall(300, this.startD, [], this);
-     
-     
-    }
-    
-     plotSine() {
-      var x=0;
-      var y=0;
-      this.graph.moveTo(x,y);
-      var amplitude = 30;
-      var frequency = 20;
-     //console.log("num="+this.number);
-      while (x < window.innerWidth) {
-        
-          y = window.innerHeight/2 + amplitude * Math.sin(x/frequency-this.number);
-            this.graph.lineTo(x,y);
-          x = x + 1;
-        
-      
-        }
-      
-      this.graph.strokePath();
-     
-      
+      this.timer = this.time.delayedCall(100, this.startD, [], this);
+
+
     }
 
-    clearDraw(){
 
-      console.log("i am in ");
-      this.graph.clear();
-    }
     startD(){
       this.timer = this.time.addEvent({
-        delay: 1000,                // ms
-        callback: this.clearDraw(),
-       
+        delay: 100,                // ms
+        callback: clearDraw(this.graph),
+
         loop: true
     });
-    
+
     }
 
 
