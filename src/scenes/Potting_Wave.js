@@ -1,11 +1,11 @@
 import { Game } from "phaser";
 
-export function plotSine(number, innerW,graph) {
+export function plotSine(number, innerW,graph,amplitude,frequency) {
       var x=0;
       var y=0;
       graph.moveTo(x,y);
-      var amplitude = 30;
-      var frequency = 20;
+       //amplitude = 30;
+     // frequency = 20;
      //console.log("num="+this.number);
       while (x < innerW) 
       { 
