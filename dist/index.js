@@ -213,10 +213,14 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
 <<<<<<< HEAD
+<<<<<<< HEAD
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "58284" + '/');
 =======
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "50196" + '/');
 >>>>>>> hajar
+=======
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50096" + '/');
+>>>>>>> parent of de98a9b (l)
 
   ws.onmessage = function (event) {
     checkedAssets = {};
