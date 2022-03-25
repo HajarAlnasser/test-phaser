@@ -72,7 +72,7 @@ export default class Game extends Phaser.Scene {
         easeValue: { duration: 250 },
 
         valuechangeCallback: function (value) {
-          print1.text = Math.round(value * 100);
+          print2.text = Math.round(value * 100);
           frequency = Math.round(value * 100);
         },
       })
