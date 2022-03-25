@@ -73,10 +73,13 @@ var waveLenght = this.add.text(100, 400, "");
 
         valuechangeCallback: function (value) {
 <<<<<<< HEAD
+<<<<<<< HEAD
           print2.text = Math.round(value * 100);
           frequency = Math.round(100-(value * 100));
           waveLenght = Math.round(100-(value*100));
 =======
+=======
+>>>>>>> parent of de98a9b (l)
           print1.text = Math.round(value * 100);
           frequency = Math.round(value * 100);
 >>>>>>> parent of de98a9b (l)
