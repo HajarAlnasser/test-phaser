@@ -54,7 +54,11 @@ export default class Game extends Phaser.Scene {
         },
       })
       .layout();
+<<<<<<< HEAD
 
+=======
+var waveLenght = this.add.text(100, 400, "");
+>>>>>>> dbe14922c8379f5a1f85567872cd392cec705f84
     var print2 = this.add.text(0, 400, "");
     this.rexUI.add
       .slider({
@@ -72,8 +76,25 @@ export default class Game extends Phaser.Scene {
         easeValue: { duration: 250 },
 
         valuechangeCallback: function (value) {
+<<<<<<< HEAD
           print2.text = Math.round(value * 100);
           frequency = Math.round(value * 100);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+          print2.text = Math.round(value * 100);
+          frequency = Math.round(100-(value * 100));
+          waveLenght = Math.round(100-(value*100));
+=======
+=======
+>>>>>>> parent of de98a9b (l)
+=======
+>>>>>>> parent of de98a9b (l)
+          print1.text = Math.round(value * 100);
+          frequency = Math.round(value * 100);
+>>>>>>> parent of de98a9b (l)
+>>>>>>> dbe14922c8379f5a1f85567872cd392cec705f84
         },
       })
       .layout();

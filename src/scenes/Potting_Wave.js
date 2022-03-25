@@ -4,8 +4,13 @@ export function plotSine(number, innerW,graph,amplitude,frequency) {
       var x=0;
       var y=0;
       graph.moveTo(x,y);
+<<<<<<< HEAD
        //amplitude = 30;
      // frequency = 20;
+=======
+  //   amplitude = 0;
+  //frequency = 20;
+>>>>>>> hajar
      //console.log("num="+this.number);
       while (x < innerW) 
       { 
